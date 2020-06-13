@@ -1,6 +1,12 @@
 <?php include "head.php" ?>
 
 <?php
+
+$bd = new SQLite3("jogos.db");
+
+$sql = "SELECT * FROM jogos";
+$jogos = $bd->query($sql);
+
 $jogo1 = 
 [
 "titulo"=>"Trove",
@@ -33,7 +39,7 @@ $jogo4 =
 "capa"=>"https://steamcdn-a.akamaihd.net/steam/apps/546560/header.jpg?t=1590678263"
 ];
 
-$jogos = [$jogo1, $jogo2, $jogo3, $jogo4];
+//$jogos = [$jogo1, $jogo2, $jogo3, $jogo4];
 ?>
 
     <body>
@@ -62,46 +68,26 @@ $jogos = [$jogo1, $jogo2, $jogo3, $jogo4];
         <!-- Cards - Geral:  -->
         
         <div class="row">
-            <?php foreach($jogos as $jogo) : ?>
+            <?php while($jogo = $jogos->fetchArray()) : ?>
                 <div class="col s3">
                     <div class="card hoverable">
                         <div class="card-image">
-                            <img src="<?= $jogo["capa"]?>">
-                            <a class="btn-floating btn-large halfway-fab black"><i class="material-icons red-text">favorite</i></a>
+                            <img src="<?= $jogo["CAPA"]?>">
+                            <a class="btn-floating btn-large halfway-fab transparent"><i class="material-icons red-text">favorite</i></a>
                         </div>
                         <div class="card-content">
-                            <span class="card-title"><?= $jogo["titulo"] ?></span>
+                            <span class="card-title"><?= $jogo["TITULO"] ?></span>
                             <p class="valign-wrapper">
                                 <i class="material-icons amber-text">star</i> 
-                                <?= $jogo["nota"] ?>
+                                <?= $jogo["NOTA"] ?>
                             </p>
-                            <p><?= $jogo["descricao"] ?></p>
+                            <p><?= $jogo["DESCRICAO"] ?></p>
                         </div>
                     </div>
                 </div>
-            <?php endforeach ?>
+            <?php endwhile ?>
         </div>
 
-        <div class="row">
-            <?php foreach($jogos as $jogo) : ?>
-                <div class="col s3">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="<?= $jogo["capa"]?>">
-                            <a class="btn-floating btn-large halfway-fab black"><i class="material-icons red-text">favorite</i></a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title"><?= $jogo["titulo"] ?></span>
-                            <p class="valign-wrapper">
-                                <i class="material-icons amber-text">star</i> 
-                                <?= $jogo["nota"] ?>
-                            </p>
-                            <p><?= $jogo["descricao"] ?></p>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach ?>
-        </div>
     </body>
 
 </html>
