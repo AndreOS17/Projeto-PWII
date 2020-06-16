@@ -22,7 +22,7 @@ else{
 }
 
 $sql = "INSERT INTO jogos (ID, TITULO, CAPA, DESCRICAO, NOTA) VALUES(
-        0,
+        -- ID,
         'Trove',
         'https://steamcdn-a.akamaihd.net/steam/apps/304050/header.jpg?t=1588710986',
         'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.',
@@ -37,11 +37,11 @@ else{
 }
 
 $sql = "INSERT INTO jogos (ID, TITULO, CAPA, DESCRICAO, NOTA) VALUES(
-    1,
-    'Subnautica',
-    'https://steamcdn-a.akamaihd.net/steam/apps/264710/header.jpg?t=1589483895',
-    'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.',
-    9.4
+        -- ID,
+        'Subnautica',
+        'https://steamcdn-a.akamaihd.net/steam/apps/264710/header.jpg?t=1589483895',
+        'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.',
+        9.4
 )";
 
 if($bd->exec($sql)){
