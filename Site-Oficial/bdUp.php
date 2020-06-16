@@ -1,5 +1,4 @@
 <?php
-
 $bd = new SQLite3("jogos.db");
 
 $sql = "DROP TABLE IF EXISTS jogos";
