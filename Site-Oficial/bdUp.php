@@ -20,8 +20,7 @@ else{
     echo "\nERRO: Tabela de Jogos não foi criada \n";
 }
 
-$sql = "INSERT INTO jogos (ID, TITULO, CAPA, DESCRICAO, NOTA) VALUES(
-        -- ID,
+$sql = "INSERT INTO jogos (TITULO, CAPA, DESCRICAO, NOTA) VALUES(
         'Trove',
         'https://steamcdn-a.akamaihd.net/steam/apps/304050/header.jpg?t=1588710986',
         'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.',
@@ -35,8 +34,7 @@ else{
     echo "\nERRO: Jogos não foram inseridos \n";
 }
 
-$sql = "INSERT INTO jogos (ID, TITULO, CAPA, DESCRICAO, NOTA) VALUES(
-        -- ID,
+$sql = "INSERT INTO jogos (TITULO, CAPA, DESCRICAO, NOTA) VALUES(
         'Subnautica',
         'https://steamcdn-a.akamaihd.net/steam/apps/264710/header.jpg?t=1589483895',
         'I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.',

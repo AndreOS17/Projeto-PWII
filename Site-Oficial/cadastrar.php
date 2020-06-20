@@ -21,59 +21,61 @@
     </nav>
 
     <div class="row">
-        <div class="col s6 offset-s3">
-            <div class="card grey darken-4">
-                <div class="card-content white-text">
-                    <span class="card-title">Cadastrar Jogo</span>
+        <form action="inserirJogo.php" method="POST">
+            <div class="col s6 offset-s3">
+                <div class="card grey darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">Cadastrar Jogo</span>
 
-                    <!-- Título - Jogo -->
-                    <div class="row">
-                        <div class="input-field inline col s12">
-                            <input id="titulo" type="text" class="validate white-text" required>
-                            <label for="titulo">Título do Jogo</label>
+                        <!-- Título - Jogo -->
+                        <div class="row">
+                            <div class="input-field inline col s12">
+                                <input type="text" class="validate white-text" name="titulo" required>
+                                <label for="titulo">Título do Jogo</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Nota - Jogo -->
-                    <div class="row">
-                        <div class="input-field inline col s3">
-                            <input id="nota" type="number" step=".1" min="0" max="10" class="validate white-text" required>
-                            <label for="nota">Nota do Jogo</label>
+                        <!-- Nota - Jogo -->
+                        <div class="row">
+                            <div class="input-field inline col s3">
+                                <input type="number" step=".1" min="0" max="10" class="validate white-text" name="nota" required>
+                                <label for="nota">Nota do Jogo</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Descrição - Jogo -->
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea id="descricao" class="materialize-textarea white-text" required></textarea>
-                                    <label for="descricao">Descrição do Jogo</label>
+                        <!-- Descrição - Jogo -->
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea class="materialize-textarea white-text" name="descricao" required></textarea>
+                                        <label for="descricao">Descrição do Jogo</label>
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
 
-                    <!-- Imagem - Jogo -->
-                    <form action="#">
-                        <div class="file-field input-field">
-                            <div class="btn brown darken-3 white-text">
-                                <span>Capa do Jogo</span>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input id="imagem" class="file-path validate" type="text">
+                        <!-- Imagem - Jogo -->
+                        <div>
+                            <div class="file-field input-field">
+                                <div class="btn brown darken-3 white-text">
+                                    <span>Capa do Jogo</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate white-text" type="text" name="capa" required>
+                                </div>
                             </div>
                         </div>
-                    </form>
-                    
-                </div>
-                <div class="card-action brown darken-3">
-                    <a href="galeria.php" class="btn grey darken-4 white-text">Cancelar</a>
-                    <a href="#" class="btn black white-text">Cadastrar</a>
+                        
+                    </div>
+                    <div class="card-action brown darken-3">
+                        <a href="galeria.php" class="btn grey darken-4 white-text">Cancelar</a>
+                        <button type="submit" class="btn black white-text">Cadastrar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
 </body>

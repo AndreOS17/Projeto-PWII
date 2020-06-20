@@ -7,39 +7,6 @@ $bd = new SQLite3("jogos.db");
 $sql = "SELECT * FROM jogos";
 $jogos = $bd->query($sql);
 
-$jogo1 = 
-[
-"titulo"=>"Trove",
-"nota"=>"9.1",
-"descricao"=>"I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.",
-"capa"=>"https://steamcdn-a.akamaihd.net/steam/apps/304050/header.jpg?t=1588710986"
-]; 
-
-$jogo2 = 
-[
-"titulo"=>"Dead Cells",
-"nota"=>"9.9",
-"descricao"=>"I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.",
-"capa"=>"https://steamcdn-a.akamaihd.net/steam/apps/588650/header.jpg?t=1590998481"
-];
-
-$jogo3 = 
-[
-"titulo"=>"Subnautica",
-"nota"=>"9.4",
-"descricao"=>"I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.",
-"capa"=>"https://steamcdn-a.akamaihd.net/steam/apps/264710/header.jpg?t=1589483895"
-];
-
-$jogo4 = 
-[
-"titulo"=>"Half-Life: Alyx",
-"nota"=>"9.5",
-"descricao"=>"I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.",
-"capa"=>"https://steamcdn-a.akamaihd.net/steam/apps/546560/header.jpg?t=1590678263"
-];
-
-//$jogos = [$jogo1, $jogo2, $jogo3, $jogo4];
 ?>
 
     <body>
@@ -66,28 +33,34 @@ $jogo4 =
         </nav>
 
         <!-- Cards - Geral:  -->
-        
-        <div class="row">
-            <?php while($jogo = $jogos->fetchArray()) : ?>
-                <div class="col s3">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="<?= $jogo["CAPA"]?>">
-                            <a class="btn-floating btn-large halfway-fab transparent"><i class="material-icons red-text">favorite</i></a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title"><?= $jogo["TITULO"] ?></span>
-                            <p class="valign-wrapper">
-                                <i class="material-icons amber-text">star</i> 
-                                <?= $jogo["NOTA"] ?>
-                            </p>
-                            <p><?= $jogo["DESCRICAO"] ?></p>
+        <div class="container">
+            <div class="row">
+                <?php while($jogo = $jogos->fetchArray()) : ?>
+                    <div class="col s12 m6 l3">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="<?= $jogo["CAPA"]?>">
+                                <a class="btn-floating btn-large halfway-fab transparent"><i class="material-icons red-text">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title"><?= $jogo["TITULO"] ?></span>
+                                <p class="valign-wrapper">
+                                    <i class="material-icons amber-text">star</i> 
+                                    <?= $jogo["NOTA"] ?>
+                                </p>
+                                <p><?= $jogo["DESCRICAO"] ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endwhile ?>
+                <?php endwhile ?>
+            </div>
         </div>
-
     </body>
-
+    <?php if(isset($_GET["msg"])): ?>
+        <script>
+            M.toast({
+                html: '<?= $_GET["msg"] ?>'
+            })
+        </script>
+    <?php endif ?>
 </html>
