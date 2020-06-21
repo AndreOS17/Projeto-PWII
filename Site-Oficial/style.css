@@ -1,6 +1,4 @@
-*{
-    font-weight: bold;
-}
+
 
 body{
     background-color: #424242;
@@ -15,6 +13,7 @@ body{
 }
 
 .tituloSite{
+    font-weight: bold;
     color: #FFFFFF;
     text-shadow: 3px 3px 8px #000000;
 }
@@ -22,4 +21,14 @@ body{
 a.active, li.active{
     border-bottom: solid 2px #FFFFFF;
     background-color: #212121;
+}
+
+.texto{
+    font-size: 11pt;
+    height: 25vmax;
+    text-align: justify;
+}
+
+.n {
+    font-weight: bold;
 }

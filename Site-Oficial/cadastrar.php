@@ -3,7 +3,7 @@
 <body>
     <!-- Links:  -->
     <nav class="nav-extended brown darken-3">
-        <div class="nav-wrapper">
+        <div class="nav-wrapper n">
             <ul id="nav-mobile" class="right">
                 <li><a href="galeria.php">Galeria de Jogos</a></li>
                 <li><a href="cadastrar.php" class="active">Cadastrar</a></li>
@@ -70,8 +70,8 @@
                         
                     </div>
                     <div class="card-action brown darken-3">
-                        <a href="galeria.php" class="btn grey darken-4 white-text">Cancelar</a>
-                        <button type="submit" class="btn black white-text">Cadastrar</button>
+                        <a href="galeria.php" class="btn grey darken-4 white-text n">Cancelar</a>
+                        <button type="submit" class="btn black white-text n">Cadastrar</button>
                     </div>
                 </div>
             </div>

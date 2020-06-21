@@ -12,7 +12,7 @@ $jogos = $bd->query($sql);
     <body>
         <!-- Links:  -->
         <nav class="nav-extended brown darken-3">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper n">
                 <ul id="nav-mobile" class="right">
                     <li><a href="galeria.php" class="active">Galeria de Jogos</a></li>
                     <li><a href="cadastrar.php">Cadastrar</a></li>
@@ -24,7 +24,7 @@ $jogos = $bd->query($sql);
             </div>
             <!-- Navtabs:  -->
             <div class="nav-content">
-                <ul class="tabs tabs-transparent grey darken-4">
+                <ul class="tabs tabs-transparent grey darken-4 n">
                     <li class="tab active disabled grey darken-4"><a href="#">Todos</a></li>
                     <li class="tab grey darken-4"><a href="#test2">Jogados</a></li>
                     <li class="tab grey darken-4"><a href="#test3">Favoritos</a></li>
@@ -33,28 +33,27 @@ $jogos = $bd->query($sql);
         </nav>
 
         <!-- Cards - Geral:  -->
-        <div class="container">
             <div class="row">
                 <?php while($jogo = $jogos->fetchArray()) : ?>
-                    <div class="col s12 m6 l3">
+                    <div class="col s3">
                         <div class="card hoverable">
                             <div class="card-image">
                                 <img src="<?= $jogo["CAPA"]?>">
                                 <a class="btn-floating btn-large halfway-fab transparent"><i class="material-icons red-text">favorite</i></a>
                             </div>
-                            <div class="card-content">
+                            <div class="card-content texto">
                                 <span class="card-title"><?= $jogo["TITULO"] ?></span>
-                                <p class="valign-wrapper">
+                                <p class="valign-wrapper n">
                                     <i class="material-icons amber-text">star</i> 
-                                    <?= $jogo["NOTA"] ?>
+                                    <?= "Nota: ",$jogo["NOTA"] ?>
                                 </p>
+                                <hr>
                                 <p><?= $jogo["DESCRICAO"] ?></p>
                             </div>
                         </div>
                     </div>
                 <?php endwhile ?>
             </div>
-        </div>
     </body>
     <?php if(isset($_GET["msg"])): ?>
         <script>
