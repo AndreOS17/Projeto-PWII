@@ -29,6 +29,18 @@ a.active, li.active{
     text-align: justify;
 }
 
-.n {
+.n{
     font-weight: bold;
+}
+
+.card{
+    border-radius: 20px;
+}
+
+.card .card-image img{
+    border-radius: 20px 20px 0px 0px;
+}
+
+.card .card-action:last-child{
+    border-radius: 0px 0px 20px 20px;
 }
