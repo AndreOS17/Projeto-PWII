@@ -2,6 +2,6 @@
 
 class Conexao{
     public static function criar():PDO{
-        return new PDO("sqlite:jogos.db");
+        return new PDO("sqlite:db/jogos.db");
     }
 }

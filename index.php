@@ -1,24 +1,26 @@
 <?php
 
 $rota = $_SERVER["REQUEST_URI"];
-$metodo = $_SERVER["REQUEST_METHOD  "];
+$metodo = $_SERVER["REQUEST_METHOD"];
+
+require "./controller/jogosController.php"; 
 
 switch($rota){
 
     case "/":
-        require "galeria.php";
+        require "view/galeria.php";
         break;
 
     case "/novoJogo":
-        if($metodo == "GET") require "cadastrar.php";
-        if($metodo == "POST") require "inserirJogo.php";
-        break;
+        if($metodo == "GET") require "view/cadastrar.php";
+        if($metodo == "POST") {
+            $controller = new jogosController();
+            $controller->save($_REQUEST);
 
-    case "/favoritos":
-        require "?.php";
+        }
         break;
 
     default:
-        require "404.php";
+        require "view/404.php";
         break;
 }

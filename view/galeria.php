@@ -3,12 +3,10 @@
 <?php
 session_start();
 
-require "./repository/jogosRepositoryPDO.php";
-require "./model/Jogo.php";
 require "./util/Mensagem.php";
 
-$jogosRepository = new jogosRepositoryPDO();
-$jogos = $jogosRepository->listarTodos();
+$controller = new jogosController();
+$jogos = $controller->index();
 
 ?>
 
