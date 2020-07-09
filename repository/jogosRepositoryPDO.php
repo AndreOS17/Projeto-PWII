@@ -23,7 +23,7 @@ class jogosRepositoryPDO{
         return $listaJogos;
     }
 
-    public function salvar(Jogo $jogo):Bool{
+    public function salvar($jogo):Bool{
         $sql = "INSERT INTO jogos (TITULO, CAPA, DESCRICAO, NOTA) 
                 VALUES(:titulo, :capa, :descricao, :nota)";
         $stmt = $this->conexao->prepare($sql);

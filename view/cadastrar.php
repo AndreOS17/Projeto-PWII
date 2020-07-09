@@ -21,7 +21,7 @@
     </nav>
 
     <div class="row">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="col s6 offset-s3">
                 <div class="card grey darken-4">
                     <div class="card-content white-text">
@@ -60,7 +60,7 @@
                             <div class="file-field input-field">
                                 <div class="btn brown darken-3 white-text">
                                     <span>Capa do Jogo</span>
-                                    <input type="file">
+                                    <input type="file" name="capa_file">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate white-text" type="text" name="capa" required>

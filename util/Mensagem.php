@@ -9,7 +9,7 @@ class Mensagem{
             return 
             "<script>
             M.toast({
-                html: 'msg'
+                html: '$msg'
             })
             </script>";
 

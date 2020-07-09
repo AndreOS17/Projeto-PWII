@@ -13,12 +13,13 @@ class jogosController{
 
     public function save($request){
         $jogosRepository = new jogosRepositoryPDO();
-        $jogo = new Jogo();
+        $jogo = (object) $request;
 
-        $jogo->titulo     = $request["titulo"];
-        $jogo->nota       = $request["nota"];
-        $jogo->descricao  = $request["descricao"];
-        $jogo->capa       = $request["capa"];
+        $upload = $this->saveCapa($_FILES);
+
+        if(gettype($upload) == "string"){
+            $jogo->capa = $upload;
+        }
 
         if($jogosRepository->salvar($jogo)){
             $_SESSION["msg"] = "Jogo cadastrado com sucesso";
@@ -29,6 +30,18 @@ class jogosController{
 
         header("Location: /");
 
+    }
+
+    private function saveCapa($file){
+        $capaDir = "imagens/capas/";
+        $capaPath = $capaDir . basename($file["capa_file"]["name"]);
+        $capaTmp = $file["capa_file"]["tmp_name"];
+        if(move_uploaded_file($capaTmp, $capaPath)){
+            return $capaPath;
+        }
+        else{
+            return false;
+        }
     }
 }
 
