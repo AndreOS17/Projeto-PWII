@@ -1,28 +1,24 @@
 <?php
-    
-    $bd = new SQLite3("jogos.db");
 
-    $titulo     = $bd->escapeString($_POST["titulo"]);
-    $nota       = $bd->escapeString($_POST["nota"]);
-    $descricao  = $bd->escapeString($_POST["descricao"]);
-    $capa       = $bd->escapeString( $_POST["capa"]);
+session_start();
 
+require "./repository/jogosRepositoryPDO.php";
 
-    $sql = "INSERT INTO jogos (TITULO, CAPA, DESCRICAO, NOTA) 
-            VALUES(:titulo, :capa, :descricao, :nota)";
-    $stmt = $bd->prepare($sql);
-    $stmt->bindValue(':titulo', $titulo, SQLITE3_TEXT);
-    $stmt->bindValue(':capa', $capa, SQLITE3_TEXT);
-    $stmt->bindValue(':descricao', $descricao, SQLITE3_TEXT);
-    $stmt->bindValue(':nota', $nota, SQLITE3_FLOAT);
+$jogosRepository = new jogosRepositoryPDO();
+$jogo = new Jogo();
 
-    if($stmt->execute()){
-        echo "\nJogos Inseridos com sucesso! \n";
-    }
-    else{
-        echo "\nERRO: Jogos não foram inseridos! ".$bd->lastErrorMsg();
-    }
+$jogo->titulo     = $_POST["titulo"];
+$jogo->nota       = $_POST["nota"];
+$jogo->descricao  = $_POST["descricao"];
+$jogo->capa       = $_POST["capa"];
 
-    header("Location: galeria.php?msg=Jogo+cadastrado+com+sucesso!");
+if($jogosRepository->salvar($jogo)){
+    $_SESSION["msg"] = "Jogo cadastrado com sucesso";
+}
+else{
+    $_SESSION["msg"] = "Erro ao cadastrar o jogo";
+}
+
+header("Location: /");
 
 ?>

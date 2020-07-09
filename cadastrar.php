@@ -5,8 +5,8 @@
     <nav class="nav-extended brown darken-3">
         <div class="nav-wrapper n">
             <ul id="nav-mobile" class="right">
-                <li><a href="galeria.php">Galeria de Jogos</a></li>
-                <li><a href="cadastrar.php" class="active">Cadastrar</a></li>
+                <li><a href="/">Galeria de Jogos</a></li>
+                <li><a href="/novoJogo" class="active">Cadastrar</a></li>
             </ul>
         </div>
         <!-- Logo:  -->
@@ -21,7 +21,7 @@
     </nav>
 
     <div class="row">
-        <form action="inserirJogo.php" method="POST">
+        <form method="POST">
             <div class="col s6 offset-s3">
                 <div class="card grey darken-4">
                     <div class="card-content white-text">
@@ -70,7 +70,7 @@
                         
                     </div>
                     <div class="card-action brown darken-3">
-                        <a href="galeria.php" class="btn grey darken-4 white-text n">Cancelar</a>
+                        <a href="/" class="btn grey darken-4 white-text n">Cancelar</a>
                         <button type="submit" class="btn black white-text n">Cadastrar</button>
                     </div>
                 </div>

@@ -1,11 +1,14 @@
 <?php include "head.php" ?>
 
 <?php
+session_start();
 
-$bd = new SQLite3("jogos.db");
+require "./repository/jogosRepositoryPDO.php";
+require "./model/Jogo.php";
+require "./util/Mensagem.php";
 
-$sql = "SELECT * FROM jogos";
-$jogos = $bd->query($sql);
+$jogosRepository = new jogosRepositoryPDO();
+$jogos = $jogosRepository->listarTodos();
 
 ?>
 
@@ -14,8 +17,8 @@ $jogos = $bd->query($sql);
         <nav class="nav-extended brown darken-3">
             <div class="nav-wrapper n">
                 <ul id="nav-mobile" class="right">
-                    <li><a href="galeria.php" class="active">Galeria de Jogos</a></li>
-                    <li><a href="cadastrar.php">Cadastrar</a></li>
+                    <li><a href="/" class="active">Galeria de Jogos</a></li>
+                    <li><a href="/novoJogo">Cadastrar</a></li>
                 </ul>
             </div>
             <!-- Logo:  -->
@@ -33,33 +36,29 @@ $jogos = $bd->query($sql);
         </nav>
 
         <!-- Cards - Geral:  -->
+        <div class="container">
             <div class="row">
-                <?php while($jogo = $jogos->fetchArray()) : ?>
-                    <div class="col s3">
+                <?php foreach($jogos as $jogo) : ?>
+                    <div class="col s12 m6 l4">
                         <div class="card hoverable">
                             <div class="card-image">
-                                <img src="<?= $jogo["CAPA"]?>">
+                                <img src="<?= $jogo->CAPA?>">
                                 <a class="btn-floating btn-large halfway-fab transparent"><i class="material-icons red-text">favorite</i></a>
                             </div>
                             <div class="card-content texto">
-                                <span class="card-title"><?= $jogo["TITULO"] ?></span>
+                                <span class="card-title"><?= $jogo->TITULO ?></span>
                                 <p class="valign-wrapper n">
                                     <i class="material-icons amber-text">star</i> 
-                                    <?= "Nota: ",$jogo["NOTA"] ?>
+                                    <?= "Nota: ",$jogo->NOTA ?>
                                 </p>
-                                <hr>
-                                <p><?= $jogo["DESCRICAO"] ?></p>
+                                <hr> 
+                                <p><?= $jogo->DESCRICAO ?></p>
                             </div>
                         </div>
                     </div>
-                <?php endwhile ?>
+                <?php endforeach ?>
             </div>
+        </div>
     </body>
-    <?php if(isset($_GET["msg"])): ?>
-        <script>
-            M.toast({
-                html: '<?= $_GET["msg"] ?>'
-            })
-        </script>
-    <?php endif ?>
+    <?= Mensagem::mostrar() ?>
 </html>
