@@ -17,5 +17,4 @@ class Jogo{
     /** @var string $CAPA */
     public $CAPA;
 
-
 }
