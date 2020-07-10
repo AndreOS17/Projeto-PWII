@@ -65,7 +65,7 @@ $jogos = $controller->index();
 
     <script>
         document.querySelectorAll(".btn-fav").forEach(btn => {
-            btn.addEventListener("click", (e) => {
+            btn.addEventListener("click", e => {
                 const id = btn.getAttribute("data-id");
                 fetch(`/favoritar/${id}`)
                 .then(response => response.json())
@@ -81,7 +81,7 @@ $jogos = $controller->index();
                 })
                 .catch(error => {
                     M.toast({html: 'Erro ao favoritar!'});
-                });
+                })
             });
         });
     </script>

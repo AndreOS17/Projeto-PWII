@@ -47,7 +47,8 @@ class jogosController{
     public function favorite(int $id){
         $jogosRepository = new jogosRepositoryPDO();
         $result = ['success' => $jogosRepository->favoritar($id)];
-        header('content-type: application/json');
+
+        header('Content-type: application/json');
         echo json_encode($result);
     }
 }

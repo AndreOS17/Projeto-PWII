@@ -22,6 +22,7 @@ if($rota === "/novoJogo"){
 if(substr($rota, 0, strlen("/favoritar")) === "/favoritar"){
     $controller = new jogosController();
     $controller->favorite(basename($rota));
+    exit();
 }
 
 require "view/404.php";
