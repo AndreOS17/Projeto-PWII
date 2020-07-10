@@ -43,6 +43,13 @@ class jogosController{
             return false;
         }
     }
+
+    public function favorite(int $id){
+        $jogosRepository = new jogosRepositoryPDO();
+        $result = ['success' => $jogosRepository->favoritar($id)];
+        header('content-type: application/json');
+        echo json_encode($result);
+    }
 }
 
 

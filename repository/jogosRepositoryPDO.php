@@ -35,4 +35,17 @@ class jogosRepositoryPDO{
         return $stmt->execute();
 
     }
+
+    public function favoritar(int $id){
+        $sql = "UPDATE jogos SET FAVORITO = NOT FAVORITO WHERE ID=:id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        if($stmt->execute()){
+            return "ok";
+        }
+        else{
+            return "ERRO";
+        }
+    }
 }

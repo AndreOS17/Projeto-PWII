@@ -40,8 +40,10 @@ $jogos = $controller->index();
                     <div class="col s12 m6 l4">
                         <div class="card hoverable">
                             <div class="card-image">
-                                <img src="<?= $jogo->CAPA?>">
-                                <a class="btn-floating btn-large halfway-fab transparent"><i class="material-icons red-text">favorite</i></a>
+                                <img src="<?= $jogo->CAPA ?>">
+                                <button class="btn-fav btn-floating btn-large halfway-fab white" data-id="<?= $jogo->ID ?>">
+                                    <i class="material-icons red-text"><?= ($jogo->FAVORITO) ? "favorite" : "add" ?></i>
+                                </button>
                             </div>
                             <div class="card-content texto">
                                 <span class="card-title"><?= $jogo->TITULO ?></span>
@@ -58,5 +60,30 @@ $jogos = $controller->index();
             </div>
         </div>
     </body>
+
     <?= Mensagem::mostrar() ?>
+
+    <script>
+        document.querySelectorAll(".btn-fav").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const id = btn.getAttribute("data-id");
+                fetch(`/favoritar/${id}`)
+                .then(response => response.json())
+                .then(response => {
+                    if(response.success === "ok"){
+                        if(btn.querySelector("i").innerHTML === "add"){
+                            btn.querySelector("i").innerHTML = "favorite";
+                        }
+                        else{
+                            btn.querySelector("i").innerHTML = "add";
+                        }
+                    }
+                })
+                .catch(error => {
+                    M.toast({html: 'Erro ao favoritar!'});
+                });
+            });
+        });
+    </script>
+
 </html>
