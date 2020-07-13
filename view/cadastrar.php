@@ -48,8 +48,14 @@
                             <div class="col s12">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea class="materialize-textarea white-text" name="descricao" required></textarea>
+                                        <textarea class="materialize-textarea white-text" id="textarea" data-length="250" name="descricao" required></textarea>
                                         <label for="descricao">Descrição do Jogo</label>
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                var textNeedCount = document.querySelectorAll('#textarea');
+                                                M.CharacterCounter.init(textNeedCount);
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
