@@ -2,12 +2,9 @@
 
 <?php
 session_start();
-
 require "./util/Mensagem.php";
-
 $controller = new jogosController();
 $jogos = $controller->index();
-
 ?>
 
 <body>
