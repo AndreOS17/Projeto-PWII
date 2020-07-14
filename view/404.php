@@ -18,6 +18,6 @@
 
         <h1 class="center" id="Erro">Página não Encontrada!</h1>
         <center><img class="img404" height="150dp" src="./imagens/Error-404Window-icon.png" alt="Erro!"></center>
-        <center><a class="btn404" href="/">Voltar para o Início</a></center>
+        <center><a class="btn404" href="/Início">Voltar para o Início</a></center>
         
 </html>
