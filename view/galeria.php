@@ -36,6 +36,9 @@ $jogos = $controller->index();
         <!-- Cards - Geral:  -->
         <div class="container">
             <div class="row">
+
+            <?php if(!$jogos) echo "<p class='card-panel brown darken-3 white-text'>Nenhum jogo cadastrado!</p>" ?>
+
                 <?php foreach($jogos as $jogo) : ?>
                     <div class="col s12 m6 l4">
                         <div class="card hoverable">

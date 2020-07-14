@@ -15,6 +15,7 @@ class jogosRepositoryPDO{
         $listaJogos = array();
         $sql = "SELECT * FROM jogos";
         $jogos = $this->conexao->query($sql);
+        if(!$jogos) return false;
 
         while($jogo = $jogos->fetchObject()){
             array_push($listaJogos, $jogo);
