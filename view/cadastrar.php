@@ -15,7 +15,7 @@
         </div>
         <div class="nav-content">
             <ul class="tabs tabs-transparent grey darken-4">
-                
+
             </ul>
         </div>
     </nav>
@@ -51,7 +51,7 @@
                                         <textarea class="materialize-textarea white-text" id="textarea" data-length="250" name="descricao" required></textarea>
                                         <label for="descricao">Descrição do Jogo</label>
                                         <script>
-                                            document.addEventListener('DOMContentLoaded', function () {
+                                            document.addEventListener('DOMContentLoaded', function() {
                                                 var textNeedCount = document.querySelectorAll('#textarea');
                                                 M.CharacterCounter.init(textNeedCount);
                                             });
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="card-action brown darken-3">
                         <a href="/" class="btn grey darken-4 white-text n">Cancelar</a>
