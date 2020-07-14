@@ -28,7 +28,7 @@ class jogosController{
             $_SESSION["msg"] = "Erro ao cadastrar o jogo";
         }
 
-        header("Location: /");
+        header("Location: /Início");
 
     }
 
