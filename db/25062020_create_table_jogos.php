@@ -5,8 +5,8 @@ $sql = "DROP TABLE IF EXISTS jogos";
 
 if($bd->exec($sql)) echo "\nTabela de Jogos apagada! \n";
 
-$sql = "CREATE TABLE Jogos (
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+$sql = "CREATE TABLE jogos (
+    ID INTEGER PRIMARY KEY AUTO_INCREMENT,
     TITULO VARCHAR(200) NOT NULL,
     NOTA DECIMAL(2,1),
     DESCRICAO TEXT,
