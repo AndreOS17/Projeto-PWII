@@ -11,7 +11,7 @@ class jogosRepositoryPDO{
         $this->conexao = Conexao::criar();
     }
 
-    public function listarTodos():Array{
+    public function listarTodos(){
         $listaJogos = array();
         $sql = "SELECT * FROM jogos";
         $jogos = $this->conexao->query($sql);
