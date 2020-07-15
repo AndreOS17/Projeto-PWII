@@ -10,7 +10,7 @@ class Conexao{
         $pass = $env["pass"];
 
         if($databasetype == "mysql"){
-            $database = "host = $server; dbname = $database";
+            $database = "host=$server;dbname=$database";
         }
 
         return new PDO("$databasetype:$database", $user, $pass);
