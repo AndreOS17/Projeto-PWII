@@ -51,6 +51,14 @@ class jogosController{
         header('Content-type: application/json');
         echo json_encode($result);
     }
+
+    public function delete(int $id){
+        $jogosRepository = new jogosRepositoryPDO();
+        $result = ['success' => $jogosRepository->deletar($id)];
+
+        header('Content-type: application/json');
+        echo json_encode($result);
+    }
 }
 
 

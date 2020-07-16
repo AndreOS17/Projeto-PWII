@@ -25,7 +25,6 @@ a.active, li.active{
 
 .texto{
     font-size: 11pt;
-    height: 25vmax;
     text-align: justify;
 }
 
@@ -64,4 +63,9 @@ a.active, li.active{
 
 .img404{
     margin-bottom: 20px;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: 1s;
 }

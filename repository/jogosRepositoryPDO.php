@@ -49,4 +49,17 @@ class jogosRepositoryPDO{
             return "ERRO";
         }
     }
+
+    public function deletar(int $id){
+        $sql = "DELETE FROM jogos WHERE ID=:id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        if($stmt->execute()){
+            return "ok";
+        }
+        else{
+            return "ERRO";
+        }
+    }
 }
