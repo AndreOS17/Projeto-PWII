@@ -5,6 +5,10 @@ session_start();
 require "./util/Mensagem.php";
 $controller = new jogosController();
 $jogos = $controller->index();
+$jogosFavoritados = array();
+foreach($jogos as $jogo){
+    if($jogo->FAVORITO) array_push($jogosFavoritados, $jogo);
+}
 ?>
 
 <body>
@@ -23,9 +27,9 @@ $jogos = $controller->index();
         <!-- Navtabs:  -->
         <div class="nav-content">
             <ul class="tabs tabs-transparent grey darken-4 n">
-                <li class="tab active disabled grey darken-4"><a href="/">Todos</a></li>
+                <li class="tab grey darken-4"><a href="/">Todos</a></li>
                 <li class="tab grey darken-4"><a href="#test2">Jogados</a></li>
-                <li class="tab grey darken-4"><a href="/favoritos">Favoritos</a></li>
+                <li class="tab active disabled grey darken-4"><a href="/favoritos">Favoritos</a></li>
             </ul>
         </div>
     </nav>
@@ -34,9 +38,9 @@ $jogos = $controller->index();
     <div class="container">
         <div class="row">
 
-            <?php if (!$jogos) echo "<p class='card-panel brown darken-3 white-text'>Nenhum jogo cadastrado!</p>" ?>
+            <?php if (!$jogosFavoritados) echo "<p class='card-panel brown darken-3 white-text'>Nenhum jogo favoritado!</p>" ?>
 
-            <?php foreach ($jogos as $jogo) : ?>
+            <?php foreach ($jogosFavoritados as $jogo) : ?>
 
                 <div class="col s12 m6 l4">
                     <div class="card hoverable card-serie">
@@ -59,7 +63,6 @@ $jogos = $controller->index();
                             <span class="card-title grey-text text-darken-4"><?= $jogo->TITULO ?><i class="material-icons right">close</i></span>
                             <hr>
                             <p><?= substr($jogo->DESCRICAO, 0, 100) . "..." ?></p>
-                            
                             <button class="waves-effect waves-light btn-small right red accent-2 btn-delete"data-id="<?= $jogo->ID ?>"><i class="material-icons">delete</i></button>
                         </div>
                     </div>
@@ -81,11 +84,10 @@ $jogos = $controller->index();
                 .then(response => response.json())
                 .then(response => {
                     if (response.success === "ok") {
-                        if (btn.querySelector("i").innerHTML === "add") {
-                            btn.querySelector("i").innerHTML = "favorite";
-                        } else {
-                            btn.querySelector("i").innerHTML = "add";
-                        }
+                        btn.querySelector("i").innerHTML = "add";
+                        const card = btn.closest(".col");
+                        card.classList.add("fadeOut");
+                        setTimeout(() => card.remove(), 1000);
                     }
                 })
                 .catch(error => {
@@ -107,7 +109,7 @@ $jogos = $controller->index();
                     if (response.success === "ok") {
                         const card = btn.closest(".col");
                         card.classList.add("fadeOut");
-                        setTimeout(() => card.remove(), 1000);                        
+                        setTimeout(() => card.remove(), 1000); 
                     }
                 })
                 .catch(error => {
