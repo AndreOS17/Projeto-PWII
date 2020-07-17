@@ -52,13 +52,14 @@ $jogos = $controller->index();
                             </span>
                             <hr>
                             <p class="valign-wrapper n">
-                                <i class="material-icons amber-text">star</i> <?= "Nota: $jogo->NOTA" ?>
+                                <i class="material-icons amber-text">star</i> <?= " Nota: $jogo->NOTA" ?>
                             </p>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4"><?= $jogo->TITULO ?><i class="material-icons right">close</i></span>
+                            <span class="card-title grey-text text-darken-4"><?= $jogo->TITULO ?><i class="material-icons right n">close</i></span>
                             <hr>
-                            <p><?= substr($jogo->DESCRICAO, 0, 100) . "..." ?></p>
+                            <!-- <p><?= $jogo->DESCRICAO ?></p> -->
+                            <p class="descJogos"><?= substr($jogo->DESCRICAO, 0, 80) . "..." ?></p>
                             
                             <button class="waves-effect waves-light btn-small right red accent-2 btn-delete"data-id="<?= $jogo->ID ?>"><i class="material-icons">delete</i></button>
                         </div>

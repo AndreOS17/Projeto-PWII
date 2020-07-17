@@ -69,3 +69,7 @@ a.active, li.active{
     opacity: 0;
     transition: 1s;
 }
+
+.descJogos {
+    text-align: justify;
+}
