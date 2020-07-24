@@ -28,8 +28,7 @@ foreach($jogos as $jogo){
         <div class="nav-content">
             <ul class="tabs tabs-transparent grey darken-4 n">
                 <li class="tab grey darken-4"><a href="/">Todos</a></li>
-                <li class="tab grey darken-4"><a href="#test2">Jogados</a></li>
-                <li class="tab active disabled grey darken-4"><a href="/favoritos">Favoritos</a></li>
+                <li class="tab active grey darken-4"><a href="/favoritos">Favoritos</a></li>
             </ul>
         </div>
     </nav>
